@@ -1,0 +1,1363 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSwap - Hitarth Kumar Garg</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* =========================
+           NAVIGATION BAR
+        ========================= */
+
+        nav {
+            height: 70px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #5b4cff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #5b4cff;
+        }
+
+        .profile-btn {
+            background: #5b4cff;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .profile-btn:hover {
+            background: #4638d8;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9e7ff,
+                    #f8f7ff
+                );
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            color: #29235c;
+        }
+
+        .hero h1 span {
+            color: #5b4cff;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #666;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           SEARCH BOX
+        ========================= */
+
+        .search-box {
+            margin: 35px auto 0;
+            max-width: 600px;
+            display: flex;
+            background: white;
+            padding: 8px;
+            border-radius: 35px;
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.12);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+
+        .search-box button {
+            border: none;
+            background: #5b4cff;
+            color: white;
+            padding: 0 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-box button:hover {
+            background: #4638d8;
+        }
+
+        /* =========================
+           SEARCH RESULT
+        ========================= */
+
+        #searchResult {
+            display: none;
+            max-width: 600px;
+            margin: 25px auto 0;
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.12);
+        }
+
+        #searchResult h2 {
+            color: #29235c;
+            margin-bottom: 10px;
+        }
+
+        #searchResult p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .go-profile {
+            background: #5b4cff;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .go-profile:hover {
+            background: #4638d8;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            color: #29235c;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #777;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow:
+                0 5px 18px
+                rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,0.12);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #777;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .learn-btn {
+            background: #5b4cff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .learn-btn:hover {
+            background: #4638d8;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step {
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow:
+                0 5px 18px
+                rgba(0,0,0,0.07);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            margin: auto auto 20px;
+            border-radius: 50%;
+            background: #5b4cff;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           HITARTH PROFILE
+        ========================= */
+
+        .profile {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            margin: auto auto 15px;
+            background: #5b4cff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .profile h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .verified {
+            color: #20a04b;
+            font-size: 14px;
+            margin: 8px;
+        }
+
+        .tags {
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eeeaff;
+            color: #5b4cff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin: 5px;
+        }
+
+        .contact-btn {
+            margin-top: 20px;
+            background: #5b4cff;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-btn:hover {
+            background: #4638d8;
+        }
+
+        /* =========================
+           MADE BY SECTION
+        ========================= */
+
+        .made-by {
+            min-height: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9e7ff,
+                    #ffffff
+                );
+        }
+
+        .made-by-card {
+            background: white;
+            padding: 55px 80px;
+            border-radius: 25px;
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,0.12);
+            min-width: 450px;
+        }
+
+        .made-by-card h2 {
+            font-size: 55px;
+            color: #5b4cff;
+            margin-bottom: 30px;
+        }
+
+        .made-by-card h3 {
+            font-size: 32px;
+            color: #29235c;
+            margin-bottom: 20px;
+        }
+
+        .made-by-card p {
+            font-size: 21px;
+            color: #555;
+            margin: 8px 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #29235c;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* =========================
+           MOBILE DESIGN
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 8px;
+                border-radius: 20px;
+            }
+
+            .search-box button {
+                padding: 14px;
+            }
+
+            .made-by-card {
+                min-width: auto;
+                width: 90%;
+                padding: 40px 20px;
+            }
+
+            .made-by-card h2 {
+                font-size: 42px;
+            }
+
+            .made-by-card h3 {
+                font-size: 26px;
+            }
+
+            .made-by-card p {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            SkillSwap
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="#home">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#skills">
+                    Explore Skills
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#how">
+                    How It Works
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#profile">
+                    Hitarth
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#madeby">
+                    Made By
+                </a>
+            </li>
+
+        </ul>
+
+
+        <button
+            class="profile-btn"
+            onclick="goToProfile()">
+
+            Hitarth's Profile
+
+        </button>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HOME / HERO
+    ========================= -->
+
+    <div
+        class="hero"
+        id="home">
+
+        <h1>
+
+            Share a Skill.<br>
+
+            <span>
+                Learn Something New.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Want to learn something?
+
+            Find Hitarth Kumar Garg
+            and start learning!
+
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="What do you want to learn?"
+                onkeydown="handleEnter(event)"
+            >
+
+
+            <button
+                onclick="searchSkills()">
+
+                🔍 Search
+
+            </button>
+
+        </div>
+
+
+        <!-- SEARCH RESULT -->
+
+        <div id="searchResult">
+
+            <h2>
+                🎯 Skill Found!
+            </h2>
+
+
+            <p id="resultText"></p>
+
+
+            <button
+                class="go-profile"
+                onclick="goToProfile()">
+
+                👤 Go to Hitarth's Profile
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         EXPLORE SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+        <div class="section-title">
+
+            <h2>
+                Explore Skills
+            </h2>
+
+
+            <p>
+                Whatever you want to learn,
+                Hitarth can help you get started.
+            </p>
+
+        </div>
+
+
+        <div class="skills">
+
+
+            <!-- CODING -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    💻
+                </div>
+
+
+                <h3>
+                    Coding
+                </h3>
+
+
+                <p>
+                    Learn programming
+                    and web development.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Coding')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ROBOTICS -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🤖
+                </div>
+
+
+                <h3>
+                    Robotics
+                </h3>
+
+
+                <p>
+                    Learn about robots
+                    and electronics.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Robotics')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- HTML -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+
+                <h3>
+                    HTML
+                </h3>
+
+
+                <p>
+                    Learn how to
+                    create websites.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('HTML')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- UNITY -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🎮
+                </div>
+
+
+                <h3>
+                    Unity
+                </h3>
+
+
+                <p>
+                    Learn how to
+                    create games.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Unity')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ELECTRONICS -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    💡
+                </div>
+
+
+                <h3>
+                    Electronics
+                </h3>
+
+
+                <p>
+                    Learn circuits and
+                    electronic projects.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Electronics')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- PROBLEM SOLVING -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🧠
+                </div>
+
+
+                <h3>
+                    Problem Solving
+                </h3>
+
+
+                <p>
+                    Improve your
+                    logical thinking skills.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Problem Solving')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- COMMUNICATION -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🗣️
+                </div>
+
+
+                <h3>
+                    Communication
+                </h3>
+
+
+                <p>
+                    Improve your
+                    speaking and communication skills.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('Communication')">
+
+                    Learn
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ANYTHING ELSE -->
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    ✨
+                </div>
+
+
+                <h3>
+                    Anything Else
+                </h3>
+
+
+                <p>
+                    Looking for something different?
+                    Search for any skill you want to learn.
+                </p>
+
+
+                <button
+                    class="learn-btn"
+                    onclick="learn('')">
+
+                    🔍 Search
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================= -->
+
+    <section id="how">
+
+        <div class="section-title">
+
+            <h2>
+                How SkillSwap Works
+            </h2>
+
+
+            <p>
+                Learning is just
+                three steps away.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+
+                <h3>
+                    Choose a Skill
+                </h3>
+
+
+                <p>
+                    Search for anything
+                    you want to learn.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+
+                <h3>
+                    Find Hitarth
+                </h3>
+
+
+                <p>
+                    Your search will connect
+                    you to Hitarth Kumar Garg.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+
+                <h3>
+                    Start Learning
+                </h3>
+
+
+                <p>
+                    Connect with Hitarth
+                    and start your skill journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HITARTH PROFILE
+    ========================= -->
+
+    <section id="profile">
+
+        <div class="section-title">
+
+            <h2>
+                Skill Teacher
+            </h2>
+
+
+            <p>
+                Meet the person behind the skills.
+            </p>
+
+        </div>
+
+
+        <div class="profile">
+
+
+            <div class="avatar">
+                H
+            </div>
+
+
+            <h3>
+                Hitarth Kumar Garg
+            </h3>
+
+
+            <div class="verified">
+                ✔ SkillSwap Teacher
+            </div>
+
+
+            <p>
+                ⭐ 4.9 Rating
+            </p>
+
+
+            <!-- SKILLS -->
+
+            <div class="tags">
+
+                <span class="tag">
+                    💻 Coding
+                </span>
+
+
+                <span class="tag">
+                    🤖 Robotics
+                </span>
+
+
+                <span class="tag">
+                    🌐 HTML
+                </span>
+
+
+                <span class="tag">
+                    🎮 Unity
+                </span>
+
+
+                <span class="tag">
+                    💡 Electronics
+                </span>
+
+
+                <span class="tag">
+                    🧠 Problem Solving
+                </span>
+
+
+                <span class="tag">
+                    🗣️ Communication
+                </span>
+
+            </div>
+
+
+            <button
+                class="contact-btn"
+                onclick="startLearning()">
+
+                🚀 Start Learning
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         MADE BY
+    ========================= -->
+
+    <section
+        id="madeby"
+        class="made-by">
+
+        <div class="made-by-card">
+
+
+            <h2>
+                Made By
+            </h2>
+
+
+            <h3>
+                Hitarth Kumar Garg
+            </h3>
+
+
+            <p>
+                VII B
+            </p>
+
+
+            <p>
+                Vikas Bharati Public School
+            </p>
+
+
+            <p>
+                Rohini
+            </p>
+
+
+            <p>
+                Delhi
+            </p>
+
+
+            <p>
+                India
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillSwap
+            | Share • Learn • Grow
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        function searchSkills() {
+
+            let skill =
+                document
+                .getElementById("searchInput")
+                .value
+                .trim();
+
+
+            let result =
+                document
+                .getElementById("searchResult");
+
+
+            let resultText =
+                document
+                .getElementById("resultText");
+
+
+            if (skill === "") {
+
+                result.style.display =
+                    "none";
+
+
+                alert(
+                    "Please type something " +
+                    "you want to learn."
+                );
+
+                return;
+            }
+
+
+            resultText.innerHTML =
+
+                "You want to learn " +
+
+                "<strong>" +
+                skill +
+                "</strong>." +
+
+                "<br><br>" +
+
+                "🎓 Go to " +
+
+                "<strong>" +
+                "Hitarth Kumar Garg" +
+                "</strong> " +
+
+                "to start learning!";
+
+
+            result.style.display =
+                "block";
+
+        }
+
+
+
+        /* =========================
+           ENTER KEY SEARCH
+        ========================= */
+
+        function handleEnter(event) {
+
+            if (event.key === "Enter") {
+
+                searchSkills();
+
+            }
+
+        }
+
+
+
+        /* =========================
+           SKILL BUTTON
+        ========================= */
+
+        function learn(skill) {
+
+            // Put selected skill in Home search bar
+
+            document
+                .getElementById("searchInput")
+                .value = skill;
+
+
+            // Return to Home section
+
+            document
+                .getElementById("home")
+                .scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+
+            // Only search automatically when
+            // a specific skill was selected.
+
+            if (skill !== "") {
+
+                searchSkills();
+
+            }
+
+
+            // Focus the Home search bar
+
+            setTimeout(function () {
+
+                document
+                    .getElementById("searchInput")
+                    .focus();
+
+            }, 500);
+
+        }
+
+
+
+        /* =========================
+           GO TO PROFILE
+        ========================= */
+
+        function goToProfile() {
+
+            document
+                .getElementById("profile")
+                .scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+        }
+
+
+
+        /* =========================
+           START LEARNING
+        ========================= */
+
+        function startLearning() {
+
+            alert(
+
+                "Great! 🎉\n\n" +
+
+                "You have chosen " +
+
+                "Hitarth Kumar Garg " +
+
+                "as your skill teacher."
+
+            );
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
+```
